@@ -13,7 +13,7 @@ def list_devices():
 	for device in devices:
 		device_list.append((device['name'], device['type'], \
 				device['sensors'], device['actuators'], device['setup']))
-	return render_template('devices/device.html',
+	return render_template('devices/device_m.html',
                            title='Your Devices', my_devices=device_list)
 
 @mod_devices.route('/add_device', methods=['POST'])

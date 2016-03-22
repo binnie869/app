@@ -4,16 +4,14 @@ from werkzeug import check_password_hash, generate_password_hash
 
 from app import db, login_manager, pubnub
 from .models import User
-from .forms import LoginForm, SignupForm
 
 
 mod_auth = Blueprint('auth', __name__)
 
 @mod_auth.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm(request.form)
-    error = None
-    print(request.method)
+    if request.method == 'GET':
+      error = None
     if request.method == 'POST':
         user = db.users.find_one({'username': request.form['username']})
         if not user:
@@ -24,15 +22,13 @@ def login():
             user_obj = User(user['username'])
             login_user(user_obj)
             return redirect(url_for('dashboard.dashboard'))
-    return render_template('auth/login.html',
+    return render_template('auth/login_m.html',
                            title='Log In to Hydrobase',
-                           form=form,
                            error=error)
 
 @mod_auth.route('/signup', methods=['GET', 'POST'])
 def signup():
-    form = SignupForm(request.form)
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST':
         existing_user = db.users.find_one({'username' :
                                            request.form['username']})
         if existing_user:
@@ -47,8 +43,7 @@ def signup():
             user = db.users.find_one({'username': request.form['username']})
             pubnub.subscribe(channels=user['username'], callback=callback, error=error)
             return redirect(url_for('dashboard.dashboard'))
-    return render_template('auth/signup.html', form=form,
-                           title='Sign Up for Hydrobase')
+    return render_template('auth/signup_m.html', title='Sign Up for Hydrobase')
 
 # @mod_auth.route('/googlelogin', methods=['GET', 'POST'])
 

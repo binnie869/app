@@ -7,5 +7,5 @@ mod_dashboard = Blueprint('dashboard', __name__)
 @mod_dashboard.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard/dashboard.html',
+    return render_template('dashboard/dashboard_m.html',
                            title='Your Dashboard')

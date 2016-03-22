@@ -1,8 +1,11 @@
 {% extends "base_m.html" %}
+{% block nav %}
+  <li><a href="/login">Login</a></li>
+{% endblock %}
 {% block contents %}
-	<div class="container">
+	<div class="container valign-wrapper">
     <div class="row">
-    <form class="col s12" action="/login" method="post">
+    <form class="col s12" id='signup' action="/signup" method="post">
       <div class="row">
         <div class="input-field col s12">
           <input placeholder="username" name ="username" id="username" type="text" class="validate">
@@ -21,8 +24,7 @@
           <label for="confirm">confirm password</label>
         </div>
         <div>
-        	<input type="submit" value="Submit">
-        	<label for="submit">Log In</label>
+        	<button class="waves-effect waves-light btn" type="submit" form="signup" value="Submit">Sign Up!</button>
         </div>
       </div>
     </form>

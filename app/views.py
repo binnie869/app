@@ -7,4 +7,4 @@ mod_app = Blueprint('app', __name__)
 @mod_app.route('/')
 @mod_app.route('/index')
 def index():
-    return render_template('index.html', title='Welcome to Hydrobase')
+    return render_template('index_m.html', title='Welcome to Hydrobase')
