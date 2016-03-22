@@ -7,5 +7,5 @@ mod_grows = Blueprint('grows', __name__)
 @mod_grows.route('/grows', methods=['GET'])
 @login_required
 def list_grows():
-	return render_template('grows/grows.html',
+	return render_template('grows/grows_m.html',
                            title='Your Grows')

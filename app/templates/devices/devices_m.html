@@ -1,4 +1,50 @@
 {% extends "base_m1.html" %}
 {% block main_contents %}
-	<h3 class="header center orange-text">Dashboard</h3>
+	<h3 class="header center orange-text">Devices</h3>
+	{% for device in my_devices %}
+	<div class="col s6">
+		<div class="container card-panel light-blue lighten-4">
+	    	<h5>{{device[0]}}</h5>
+	    	{{device[1]}}</br>
+	    	{{device[4]}}</br>
+	    	{{device[3]}}</br>
+	    	{{device[2]}}</br></br>
+	    </div>
+    </div>
+    {% endfor %}
+    <div class="col s6">
+    	<div class="container card-panel light-blue lighten-4">
+		  	<!-- Modal Trigger -->
+			<button data-target="modal1" class="btn modal-trigger">Add</button>
+
+		  	<!-- Modal Structure -->
+		  	<div id="modal1" class="modal modal-fixed-footer">
+		    	<div class="modal-content">
+		      		<h4>Modal Header</h4>
+		      		<div class="container valign-wrapper">
+					    <div class="row">
+					    <form class="col s12" id="login" action="/login" method="post">
+					      <div class="row">
+					        <div class="input-field col s12">
+					          <input placeholder="Arduino #n" name ="device_name" id="device_name" type="text" class="validate">
+					          <label for="device_name">Device Name</label>
+					        </div></br>
+					        <div>
+						    	<input name="setup" type="radio" id="standard" />
+						    	<label for="standard">Standard setup</label>
+						  
+						    	<input name="setup" type="radio" id="custom" />
+						    	<label for="custom">Custom setup</label>
+						    </div>
+					      </div>
+					    </form>
+					  </div>
+					 </div>
+		    	</div>
+		    	<div class="modal-footer">
+		    		<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+		 		</div>
+			</div>
+   		</div>
+    </div>
 {% endblock %}

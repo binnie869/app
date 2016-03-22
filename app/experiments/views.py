@@ -7,5 +7,5 @@ mod_experiments = Blueprint('experiments', __name__)
 @mod_experiments.route('/experiments', methods=['GET'])
 @login_required
 def list_experiments():
-	return render_template('experiments/experiments.html',
+	return render_template('experiments/experiments_m.html',
                            title='Your Experiments')
