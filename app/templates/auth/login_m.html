@@ -4,8 +4,8 @@
 {% endblock %}
 {% block contents %}
 	<div class="container valign-wrapper">
-    <div class="row">
-    <form class="col s12" id="login" action="/login" method="post">
+    <div class="row col">
+    <form class="col s12 offset-s12" id="login" action="/login" method="post">
       <div class="row">
         <div class="input-field col s12">
           <input placeholder="username" name ="username" id="username" type="text" class="validate">
@@ -19,7 +19,7 @@
           <button class="waves-effect waves-light btn" type="submit" form="login" value="Submit">Log In!</button>
         </div>
         {% if error %}
-            <p class="error">{{ error }}
+            <p class="error">{{ error }}</p>
         {% endif %}
       </div>
     </form>

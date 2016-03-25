@@ -7,3 +7,5 @@ body {
 main {
     flex: 1 0 auto;
   }
+
+.center-btn { text-align: center }
